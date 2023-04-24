@@ -54,7 +54,14 @@ st.divider()
 # Text area example. Provide tooltip and placeholder example where applicable to guide user.
 prompt = st.text_area("Text area",
                       height=200, help="Provide a simple tooltip explanation to help user", placeholder="Give an example or instruction to guide user")
+
+# to keep the response variable as it will be used for the feedback section
 response = prompt
+
+# --------------------- CONTENT AREA END (ADD YOUR CODE BEFORE HERE) ----------------------
+
+
+# --------------------- TEMPLATE FOOTER START (DO NOT EDIT) -------------------------------
 
 # Generate response & feedback.
 if st.button("Submit"):
@@ -68,16 +75,12 @@ if st.button("Submit"):
     else:
         st.error("You must input a prompt to get started")
 
+
 if st.session_state.click_status:
     st.divider()
     st.subheader("The response is:")
     st.success(response)  # change the output
     st.write("Thank you for your feedback!")
-
-# --------------------- CONTENT AREA END (ADD YOUR CODE BEFORE HERE) ----------------------
-
-
-# --------------------- TEMPLATE FOOTER START (DO NOT EDIT) -------------------------------
 
 st.divider()
 
