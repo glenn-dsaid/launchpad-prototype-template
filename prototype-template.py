@@ -2,10 +2,33 @@ import streamlit as st
 
 # --------------------- TEMPLATE HEADER START (DO NOT EDIT) ------------------------------
 
+if 'click_status' not in st.session_state:
+    st.session_state.click_status = False
+
+if 'response_msg' not in st.session_state:
+    st.session_state.response_msg = ""
+
+
+def form_callback():
+    st.session_state.click_status = True
+
+
+def feedback_section():
+    st.session_state.click_status = False
+
+    # Feedback section
+    with st.form("feedback_form"):
+        feedback = st.radio(
+            "How would you rate this response?", ("👍", "👎"), horizontal=True)
+        comment = st.text_input("Additional comments (optional)")
+        click_feedback = st.form_submit_button(
+            label='Send feedback', on_click=form_callback)
+        # Do something with the feedback
+
+
 # Set Streamlit app theme
 st.set_page_config(page_title="LaunchPad Prototype",
                    page_icon="images/launchpad-icon.png", layout="centered")
-
 
 # Display logo image
 launchpad_icon = "images/launchpad-icon.png"
@@ -28,64 +51,28 @@ st.divider()
 
 # --------------------- CONTENT AREA START (ADD YOUR CODE AFTER HERE) ------------------
 
-
-# Create function to handle feedback submission
-
-def submit_feedback(feedback_text, feedback_rating):
-    if not feedback_text:
-        st.error("Please provide feedback before submitting.")
-    else:
-        st.success("Thank you for your feedback!")
-
-# Define Streamlit app
-
-
-def app():
-    st.title("Feedback Section")
-
-    # Prompt user for feedback
-    feedback_text = st.text_area("Please provide your feedback here:")
-
-    # Allow user to rate the response
-    feedback_rating = st.selectbox("Did you find the response helpful?", [
-                                   "Thumbs Up", "Thumbs Down"])
-
-    # Create container to hold feedback elements
-    with st.container():
-        st.write("Please provide your feedback on the response below.")
-        st.write("Your feedback will help us improve our service.")
-
-        # Add thumbs up/down buttons
-        col1, col2 = st.beta_columns(2)
-        with col1:
-            if st.button("👍 Thumbs Up"):
-                feedback_rating = "Thumbs Up"
-        with col2:
-            if st.button("👎 Thumbs Down"):
-                feedback_rating = "Thumbs Down"
-
-        # Add comment box
-        feedback_comment = st.text_area("Additional comments (optional):")
-
-        # Add submit button
-        if st.button("Submit Feedback"):
-            submit_feedback(feedback_comment, feedback_rating)
-
-
-# Text area example. To provide tooltip and placeholder example where applicable to guide user.
+# Text area example. Provide tooltip and placeholder example where applicable to guide user.
 prompt = st.text_area("Text area",
                       height=200, help="Provide a simple tooltip explanation to help user", placeholder="Give an example or instruction to guide user")
+response = prompt
 
-# Generate response example. To provide error using st.error and st.success as the response.
+# Generate response & feedback.
 if st.button("Submit"):
-    if prompt != "":
+    if response != "":
         with st.spinner('Generating response...'):
             st.divider()
-            st.subheader("The response is2:")
-            app()
-        st.success(prompt)
+            st.subheader("The response is:")
+        st.success(response)  # change the output
+        st.session_state.response_msg = response
+        feedback_section()
     else:
         st.error("You must input a prompt to get started")
+
+if st.session_state.click_status:
+    st.divider()
+    st.subheader("The response is:")
+    st.success(response)  # change the output
+    st.write("Thank you for your feedback!")
 
 # --------------------- CONTENT AREA END (ADD YOUR CODE BEFORE HERE) ----------------------
 
@@ -96,7 +83,7 @@ st.divider()
 
 # Display feedback message
 st.info(
-    "💬 Help us improve the application by sharing your [feedback with us](http://go.gov.sg/launchpad-gpt-feedback).")
+    "💬 Help us improve the application by [sharing your feedback with us](http://go.gov.sg/launchpad-gpt-feedback).")
 
 # Hide streamlit footer
 hide_streamlit_style = """
