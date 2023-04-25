@@ -1,19 +1,18 @@
 import streamlit as st
+import time
 
-# --------------------- TEMPLATE HEADER START (DO NOT EDIT) ------------------------------
+# ------------ TEMPLATE HEADER START (EDIT ONLY RELEVANT FIELDS) ------------
 
+# Initiate the submit button status
 if 'click_status' not in st.session_state:
     st.session_state.click_status = False
 
+# Initiate the submit button status
 if 'response_msg' not in st.session_state:
     st.session_state.response_msg = ""
 
 
-def form_callback():
-    st.session_state.click_status = True
-
-
-def feedback_section():
+def feedback_section():  # Define feedback section content
     st.session_state.click_status = False
 
     # Feedback section
@@ -23,55 +22,56 @@ def feedback_section():
         comment = st.text_input("Additional comments (optional)")
         click_feedback = st.form_submit_button(
             label='Send feedback', on_click=form_callback)
-        # Do something with the feedback
+
+
+def form_callback():  # Define feedback callback
+    st.session_state.click_status = True
+    # Do something with the feedback
 
 
 # Set Streamlit app theme
 st.set_page_config(page_title="LaunchPad Prototype",
-                   page_icon="images/launchpad-icon.png", layout="centered")
+                   page_icon="images/launchpad-icon.png", layout="centered")  # EDIT PAGE TITLE
 
 # Display logo image
 launchpad_icon = "images/launchpad-icon.png"
 st.image(launchpad_icon, width=100)
 
 # Set up app title
-st.title("Application Title")
+st.title("Application Title")  # EDIT TITLE
 
-# Display app information
+# Display disclaimer message
 st.warning('**This application is in Alpha version**. You should avoid using it for general fact-finding and information retrieval and must never trust the responses completely.')
 
-# Add information section
-with st.expander("Application Title", False):
+# Display information section
+with st.expander("Application Title", False):   # EDIT TITLE
+    # EDIT DESCRIPTION
     st.write('Application description here. Keep it to within 5 liners.')
 
 st.divider()
 
-# --------------------- TEMPLATE HEADER END (DO NOT EDIT) ------------------------------
+# ------------ TEMPLATE HEADER END (EDIT ONLY RELEVANT FIELDS) ------------
 
 
-# --------------------- CONTENT AREA START (ADD YOUR CODE AFTER HERE) ------------------
+# ------------ CONTENT AREA START (ADD CODE AFTER HERE) ------------
 
-# Text area example. Provide tooltip and placeholder example where applicable to guide user.
-prompt = st.text_area("Text area",
-                      height=200, help="Provide a simple tooltip explanation to help user", placeholder="Give an example or instruction to guide user")
-
-# to keep the response variable as it will be used for the feedback section
-response = prompt
-
-# --------------------- CONTENT AREA END (ADD YOUR CODE BEFORE HERE) ----------------------
-
-
-# --------------------- TEMPLATE FOOTER START (DO NOT EDIT) -------------------------------
+# (CAN DELETE) Content example. Always provide tooltip and placeholder example where applicable to guide user.
+prompt = st.text_area("Text area", help="Provide a simple tooltip explanation to help user",
+                      placeholder="Give an example or instruction to guide user")
 
 # Generate response & feedback.
+
+response = prompt  # to replace prompt with the actual response
+
 if st.button("Submit"):
-    if response != "":
+    if prompt != "":  # check that prompt isn't empty
         with st.spinner('Generating response...'):
+            time.sleep(2)  # For testing purposes
             st.divider()
             st.subheader("The response is:")
-        st.success(response)  # change the output
-        st.session_state.response_msg = response
-        feedback_section()
+            st.success(response)
+            st.session_state.response_msg = response
+            feedback_section()
     else:
         st.error("You must input a prompt to get started")
 
@@ -79,8 +79,13 @@ if st.button("Submit"):
 if st.session_state.click_status:
     st.divider()
     st.subheader("The response is:")
-    st.success(response)  # change the output
+    st.success(response)
     st.write("Thank you for your feedback!")
+
+# ------------ CONTENT AREA END (ADD CODE BEFORE HERE) ------------
+
+
+# ------------ TEMPLATE FOOTER START (EDIT ONLY RELEVANT FIELDS) ------------
 
 st.divider()
 
@@ -96,4 +101,4 @@ hide_streamlit_style = """
             """
 st.markdown(hide_streamlit_style, unsafe_allow_html=True)
 
-# ---------------------- TEMPLATE FOOTER END  (DO NOT EDIT) -------------------------------
+# ------------ TEMPLATE FOOTER END (EDIT ONLY RELEVANT FIELDS) ------------
