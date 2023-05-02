@@ -3,14 +3,6 @@ import time
 
 # ------------ TEMPLATE HEADER START (EDIT ONLY RELEVANT FIELDS) ------------
 
-# Initiate the submit button status
-if 'click_status' not in st.session_state:
-    st.session_state.click_status = False
-
-# Initiate the submit button status
-if 'response_msg' not in st.session_state:
-    st.session_state.response_msg = ""
-
 
 def feedback_section():  # Define feedback section content
     st.session_state.click_status = False
@@ -29,6 +21,26 @@ def form_callback():  # Define feedback callback
     # Do something with the feedback
 
 
+def response_section():
+    st.divider()
+    st.subheader("Output")
+    # Generate the actual prompt section
+    with st.expander("**ACTUAL PROMPT**", False):
+        st.write(actual_prompt)
+    # Generate the response section with temperature
+    with st.expander("**RESPONSE**", True):
+        st.write(response)
+        st.caption("Temperature: 5.0 (Balanced)")
+
+
+# Initiate the submit button status
+if 'click_status' not in st.session_state:
+    st.session_state.click_status = False
+
+# Initiate the response msg button status
+if 'response_msg' not in st.session_state:
+    st.session_state.response_msg = ""
+
 # Set Streamlit app theme
 st.set_page_config(page_title="LaunchPad Prototype",
                    page_icon="images/launchpad-icon.png", layout="centered")  # EDIT PAGE TITLE
@@ -44,7 +56,7 @@ st.title("Application Title")  # EDIT TITLE
 st.warning('**This application is in Alpha version**. You should avoid using it for general fact-finding and information retrieval and must never trust the responses completely.')
 
 # Display information section
-with st.expander("Application Title", False):   # EDIT TITLE
+with st.expander("**APPLICATION TITLE**", False):   # EDIT TITLE
     # EDIT DESCRIPTION
     st.write('Application description here. Keep it to within 5 liners.')
 
@@ -60,16 +72,17 @@ prompt = st.text_area("Text area", help="Provide a simple tooltip explanation to
                       placeholder="Give an example or instruction to guide user")
 
 # Generate response & feedback.
+actual_prompt = "The actual prompt will be shown here."
 
-response = prompt  # to replace prompt with the actual response
+# to replace prompt with the actual response
+response = "The response will be shown here."
+
 
 if st.button("Submit"):
     if prompt != "":  # check that prompt isn't empty
         with st.spinner('Generating response...'):
             time.sleep(2)  # For testing purposes
-            st.divider()
-            st.subheader("The response is:")
-            st.success(response)
+            response_section()
             st.session_state.response_msg = response
             feedback_section()
     else:
@@ -77,10 +90,8 @@ if st.button("Submit"):
 
 
 if st.session_state.click_status:
-    st.divider()
-    st.subheader("The response is:")
-    st.success(response)
-    st.write("Thank you for your feedback!")
+    response_section()
+    st.success("Thank you for your feedback!")
 
 # ------------ CONTENT AREA END (ADD CODE BEFORE HERE) ------------
 
