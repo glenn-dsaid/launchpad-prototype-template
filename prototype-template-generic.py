@@ -29,7 +29,7 @@ def response_section():
         st.write(actual_prompt)
     # Generate the response section with temperature
     with st.expander("**RESPONSE**", True):
-        st.write(response)
+        st.info(response)
         st.caption("Temperature: 5.0 (Balanced)")
 
 
@@ -111,9 +111,12 @@ st.caption(
 
 # Hide streamlit footer
 hide_streamlit_style = """
-            <style>
-            footer {visibility: hidden;}
-            </style>
+                <style>
+                footer {display: none;}
+                .stAlert {white-space:pre-wrap;}
+                .row-widget.stButton {text-align:left;}
+                .st-bk,[kind="primary"],[role="alert"],[data-baseweb="textarea"],[data-baseweb="input"] {border-radius: 8px;}
+                </style>
             """
 st.markdown(hide_streamlit_style, unsafe_allow_html=True)
 
