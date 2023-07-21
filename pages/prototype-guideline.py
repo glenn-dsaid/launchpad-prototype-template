@@ -2,50 +2,8 @@ import streamlit as st
 import time
 import datetime
 
-# ------------ TEMPLATE HEADER START (EDIT ONLY RELEVANT FIELDS) ------------
-
-
-def feedback_section():  # Define feedback section content
-    st.session_state.click_status = False
-
-    # Feedback section
-    with st.form("feedback_form"):
-        feedback = st.radio(
-            "How would you rate this response?", ("👍", "👎"), horizontal=True)
-        comment = st.text_input("Additional comments (optional)")
-        click_feedback = st.form_submit_button(
-            label='Send feedback', on_click=form_callback)
-
-
-def form_callback():  # Define feedback callback
-    st.session_state.click_status = True
-    # Do something with the feedback
-
-
-def response_section():
-    st.divider()
-    st.subheader("Output")
-
-    # Generate the response section with temperature
-    with st.expander("**RESPONSE**", True):
-        st.info(response)
-        st.caption("Temperature: 5.0 (Balanced)")
-
-    # Generate the actual prompt section
-    with st.expander("**ACTUAL PROMPT**", False):
-        st.info(actual_prompt)
-
-
-# Initiate the submit button status
-if 'click_status' not in st.session_state:
-    st.session_state.click_status = False
-
-# Initiate the response msg button status
-if 'response_msg' not in st.session_state:
-    st.session_state.response_msg = ""
-
 # Set Streamlit app theme
-st.set_page_config(page_title="LaunchPad Prototype Template",
+st.set_page_config(page_title="Guideline",
                    page_icon="images/launchpad-icon.png", layout="centered")  # EDIT PAGE TITLE
 
 # Display logo image
@@ -53,32 +11,20 @@ launchpad_icon = "images/launchpad-icon.png"
 st.image(launchpad_icon, width=100)
 
 # Set up app title
-st.title("Application Title")  # EDIT TITLE
+st.title("Guidelines and Standards")  # EDIT TITLE
 
 # Display disclaimer message
-st.warning('**This application is in Alpha version**. You should avoid using it for general fact-finding and information retrieval and must never trust the responses completely.')
-
-# Display information section
-with st.expander("**DESCRIPTION**", False):   # EDIT TITLE
-    # EDIT DESCRIPTION
-    st.write('Application description here. Keep it to within 5 liners.')
+st.write('This page offers concise and practical tips to enhance the effective utilization of various commonly used Streamlit components.')
 
 st.divider()
 
-# ------------ TEMPLATE HEADER END (EDIT ONLY RELEVANT FIELDS) ------------
-
-
-# ------------ CONTENT AREA START (ADD CODE AFTER HERE) ------------
-
-# # Initial bot selection.
-# with st.expander("⚙️ **BOT SELECTION**", expanded=True):
-#     st.selectbox('Select your bot', ['Marketing',
-#                                      'Speech', 'Testimonial'], help="test")
+# Input widget section start
+st.markdown("""#### Input Widgets""")
 
 # Text Input
 with st.expander("💬 **TEXT INPUT**", expanded=False):
 
-    st.text_input("Text input label", help="""https://docs.streamlit.io/library/api-reference/widgets/st.text_input""",
+    st.text_input("Text input", help="""https://docs.streamlit.io/library/api-reference/widgets/st.text_input""",
                   placeholder="e.g. provide a clear and concise labels or examples to the user")
     st.divider()
     st.caption(
@@ -92,7 +38,7 @@ with st.expander("💬 **TEXT INPUT**", expanded=False):
 # Text Area
 with st.expander("📝 **TEXT AREA**", expanded=False):
 
-    st.text_area("Text area label", help="""Provide a simple tooltip explanation to help user.""",
+    st.text_area("Text area", help="""Provide a simple tooltip explanation to help user.""",
                  placeholder="e.g. provide a clear and concise labels or examples to the user", max_chars=1000)
     st.divider()
     st.caption(
@@ -132,7 +78,6 @@ with st.expander("🌐 **MULTISELECT**", expanded=False):
             \n• Use tooltip help to provide additional guide to the user.
             \n• Ensure that the multiselect has default or pre-selected values that make sense in the context of the application, if applicable.
             \n• If applicable, provide a "None" or "Not Applicable" option to account for scenarios where no specific option is suitable.""")
-
 
 # Checkbox
 with st.expander("☑️ **CHECKBOX**", expanded=False):
@@ -207,7 +152,6 @@ with st.expander("📅 **DATE INPUT**", expanded=False):
 # Time Input
 with st.expander("⌚ **TIME INPUT**", expanded=False):
 
-    # Time input
     st.time_input('Time input', datetime.time(12, 00),
                   help="Provide a simple tooltip explanation to help user")
     st.divider()
@@ -220,7 +164,6 @@ with st.expander("⌚ **TIME INPUT**", expanded=False):
 # File Uploader
 with st.expander("📂 **FILE UPLOADER**", expanded=False):
 
-    # Time input
     st.file_uploader(
         "File uploader", accept_multiple_files=True,  type='txt, docx, pdf', help="Provide a simple tooltip explanation to help user")
     st.divider()
@@ -229,34 +172,83 @@ with st.expander("📂 **FILE UPLOADER**", expanded=False):
             \n• Limit the accepted file types to only what is necessary for the application to prevent irrelevant or unsupported files from being uploaded.
             \n• Specify the maximum file size that the uploader can handle.""")
 
-# Generate response & feedback.
-actual_prompt = "The actual prompt will be shown here."
+# Button
+with st.expander("📥 **BUTTON**", expanded=False):
 
-# to replace prompt with the actual response
-response = "The response will be shown here."
+    st.button("Primary Button", type='primary')
+    st.button("Secondary Button", type='secondary')
+    st.divider()
+    st.caption(
+        """• Use primary button for main action and accompany with secondary button if you need 2 buttons for different actions. Do not use 2 primary buttons alongside one another.
+            \n• Clearly label the purpose of the button to indicate the action it performs. Consider using action-oriented labels like "Submit," "Save," "Apply," or "Search".
+            \n• If the button performs a time-consuming action, provide feedback(st.spinner) to indicate that the action is in progress.
+            \n• Disable the button when the action it triggers is not applicable or during processes that require completion before triggering the action again.
+            """)
 
-if st.button("Submit", type="primary"):
-    with st.spinner('Generating response...'):
-        time.sleep(2)  # For testing purposes
-        response_section()
-        st.session_state.response_msg = response
-        feedback_section()
+# Status elements section start
+st.divider()
+st.markdown("""#### Status Elements""")
 
-if st.session_state.click_status:
-    response_section()
-    st.success("Thank you for your feedback!")
+# Info Status
+with st.expander("ℹ️ **INFO STATUS**", expanded=False):
+
+    st.info('Info Status')
+    st.divider()
+    st.caption(
+        """• Utilize info messages to explain features, provide instructions, or share tips with users.
+            \n• Keep info messages brief and informative to assist users without overwhelming them.""")
 
 
-# ------------ CONTENT AREA END (ADD CODE BEFORE HERE) ------------
+# Error Status
+with st.expander("❌ **ERROR STATUS**", expanded=False):
+
+    st.error('Error Status')
+    st.divider()
+    st.caption(
+        """• Use error messages to inform users about critical errors that prevent the application from functioning correctly.
+            \n• Provide clear and concise error messages that help users understand the problem and suggest possible solutions.
+            \n• Avoid using error messages for non-critical issues or situations that users can easily recover from.""")
+
+# Warning Status
+with st.expander("⚠️ **WARNING STATUS**", expanded=False):
+
+    st.warning('Warning Status')
+    st.divider()
+    st.caption(
+        """• Utilize warning messages for situations that require user attention or action.
+            \n• Keep warning messages concise and clear to communicate the message effectively.
+            \n• Use warning messages sparingly to avoid overwhelming users with too many alerts.""")
+
+# Success Status
+with st.expander("✅ **SUCCESS STATUS**", expanded=False):
+
+    st.success('Success Status')
+    st.divider()
+    st.caption(
+        """• Provide positive feedback to users after they successfully complete an action.
+            \n• Keep success messages short and to the point to reinforce the accomplishment.
+            \n• Use success messages to create a positive user experience.""")
+
+
+# Spinner
+with st.expander("🌀 **SPINNERS**", expanded=False):
+
+    def recursive_spinner():
+        st.spinner("Loading...")
+        time.sleep(0.5)
+        recursive_spinner()
+
+    with st.spinner():
+        recursive_spinner()
+
+    st.divider()
+    st.caption(
+        """• Use the spinner for time-consuming action to indicate that the action is in progress.
+        \n• Provide an error if the spinner takes too long to load. Do not let the user wait for too long for the action to take place. Provide a clear time indication if it will take long.
+            """)
 
 
 # ------------ TEMPLATE FOOTER START (EDIT ONLY RELEVANT FIELDS) ------------
-
-st.divider()
-
-# Display feedback message
-st.info(
-    "💬 Help us improve the application by [sharing your feedback with us](http://go.gov.sg/launchpad-gpt-feedback).")
 
 # Hide streamlit footer
 hide_streamlit_style = """
