@@ -234,7 +234,7 @@ with st.expander("✅ **SUCCESS STATUS**", expanded=False):
 with st.expander("🌀 **SPINNERS**", expanded=False):
 
     def recursive_spinner():
-        st.spinner("Use this for time-consuming action...")
+        st.spinner("Use this for time-consuming action..")
         time.sleep(0.5)
         recursive_spinner()
 
