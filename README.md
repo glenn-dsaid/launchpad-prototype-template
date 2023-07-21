@@ -4,17 +4,17 @@
 
 ### Guidelines and Standards
 
-The "Guidelines and Standards" section offers concise and practical tips to enhance the effective utilization of various commonly used Streamlit components.
+The "Guidelines and Standards" section offers concise and practical tips to enhance the effective utilization of various commonly used Streamlit components.<b/>
 <a href = "https://launchpad-prototype-template.streamlit.app/prototype-guideline" target="_blank">Read more ></a>
 
 ### Generic Template
 
-The Generic Template is designed to be used by external agencies when creating prototypes. The template includes a generic icon and disclaimer prominently displayed in the header. Aside from these differences, the remaining content and structure of the template remain identical to the generic version.
+The Generic Template is designed to be used by external agencies when creating prototypes. The template includes a generic icon and disclaimer prominently displayed in the header. Aside from these differences, the remaining content and structure of the template remain identical to the generic version.<b/>
 <a href = "https://github.com/glenn-dsaid/launchpad-prototype-template/tree/main/template/generic">Download Generic Template ></a>
 
 ### LaunchPad Template
 
-The LaunchPad Template is intended for internal team use when creating prototypes. The template includes a distinctive LaunchPad icon and a disclaimer prominently displayed in the header. Aside from these differences, the remaining content and structure of the template remain identical to the generic version.
+The LaunchPad Template is intended for internal team use when creating prototypes. The template includes a distinctive LaunchPad icon and a disclaimer prominently displayed in the header. Aside from these differences, the remaining content and structure of the template remain identical to the generic version.<b/>
 <a href = "https://github.com/glenn-dsaid/launchpad-prototype-template/tree/main/template/launchpad">Download LaunchPad Template ></a>
 
 <hr/>
