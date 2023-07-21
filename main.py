@@ -16,13 +16,13 @@ st.subheader("Guidelines & Standards")
 st.write("The \"Guidelines and Standards\" section offers concise and practical tips to enhance the effective utilization of various commonly used Streamlit components.")
 
 st.subheader("Generic Template")
-st.write("The Generic Template is designed to be used by external agencies when creating prototypes."
-         "The template includes a generic icon and disclaimer prominently displayed in the header. Aside from these differences, the remaining content and structure of the template remain identical to the generic version.")
+st.write("The Generic Template is designed to be used by external agencies when creating prototypes. "
+         "The template includes a generic icon and disclaimer prominently displayed in the header. Aside from these differences, the remaining content and structure of the template remain identical to the LaunchPad version.")
 st.write(
     "[Download Generic Template](https://github.com/glenn-dsaid/launchpad-prototype-template/tree/main/template/generic)")
 
 st.subheader("LaunchPad Template")
-st.write("The LaunchPad Template is designed for internal team use when creating prototypes."
+st.write("The LaunchPad Template is designed for internal team use when creating prototypes. "
          "The template includes a distinctive LaunchPad icon and a disclaimer prominently displayed in the header. Aside from these differences, the remaining content and structure of the template remain identical to the generic version.")
 st.write(
     "[Download LaunchPad Template](https://github.com/glenn-dsaid/launchpad-prototype-template/tree/main/template/launchpad)")
