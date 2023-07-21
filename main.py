@@ -20,13 +20,13 @@ st.subheader("Generic Template")
 st.write("The Generic Template is designed to be used by external agencies when creating prototypes. "
          "The template includes a generic icon and disclaimer prominently displayed in the header. Aside from these differences, the remaining content and structure of the template remain identical to the generic version.")
 st.write(
-    "Download Generic Template [here](https://github.com/glenn-dsaid/launchpad-prototype-template/tree/main/template/generic)")
+    "[Download Generic Template](https://github.com/glenn-dsaid/launchpad-prototype-template/tree/main/template/generic)")
 
 st.subheader("LaunchPad Template")
 st.write("The LaunchPad Template is intended for internal team use when creating prototypes. "
          "The template includes a distinctive LaunchPad icon and a disclaimer prominently displayed in the header. Aside from these differences, the remaining content and structure of the template remain identical to the generic version.")
 st.write(
-    "Download LaunchPad Template [here](https://github.com/glenn-dsaid/launchpad-prototype-template/tree/main/template/launchpad)")
+    "[Download LaunchPad Template](https://github.com/glenn-dsaid/launchpad-prototype-template/tree/main/template/launchpad)")
 
 st.divider()
 
