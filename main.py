@@ -13,7 +13,7 @@ st.write("This is the homepage of the LaunchPad Prototype Template. "
 
 st.divider()
 
-st.subheader("Guidelines and Standards")
+st.subheader("Guidelines & Standards")
 st.write("The \"Guidelines and Standards\" section offers concise and practical tips to enhance the effective utilization of various commonly used Streamlit components.")
 
 st.subheader("Generic Template")
