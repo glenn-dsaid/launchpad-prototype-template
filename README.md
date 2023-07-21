@@ -1,4 +1,4 @@
-![LaunchPad Logo](https://github.com/glenn-dsaid/launchpad-prototype-template/blob/main/images/launchpad-icon.png?raw=true)
+<img src="https://github.com/glenn-dsaid/launchpad-prototype-template/blob/main/images/launchpad-icon.png?raw=true" alt="LaunchPad Logo" width="200"/>
 
 # LaunchPad Prototype Templates
 
