@@ -233,20 +233,19 @@ with st.expander("✅ **SUCCESS STATUS**", expanded=False):
 # Spinner
 with st.expander("🌀 **SPINNERS**", expanded=False):
 
+    def recursive_spinner():
+        time.sleep(0.5)
+        recursive_spinner()
+
+    with st.spinner("Use spinner for processing. Show error if it takes too long."):
+        recursive_spinner()
+
+    st.divider()
+
     st.caption(
         """• Use the spinner for time-consuming action to indicate that the action is in progress.
         \n• Provide an error if the spinner takes too long to load. Do not let the user wait for too long for the action to take place. Provide a clear time indication if it will take long.
             """)
-
-    st.divider()
-
-    def recursive_spinner():
-        st.spinner("Loading...")
-        time.sleep(0.5)
-        recursive_spinner()
-
-    with st.spinner():
-        recursive_spinner()
 
 
 # ------------ TEMPLATE FOOTER START (EDIT ONLY RELEVANT FIELDS) ------------
