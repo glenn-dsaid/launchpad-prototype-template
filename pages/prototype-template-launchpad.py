@@ -18,7 +18,7 @@ def feedback_section():  # Define feedback section content
 
 def form_callback():  # Define feedback callback
     st.session_state.click_status = True
-    # To do something with the feedback. Not yet implemented
+    # To do something with the feedback. To be implemented
 
 
 def response_section():  # Define response section

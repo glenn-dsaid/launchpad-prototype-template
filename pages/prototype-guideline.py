@@ -4,14 +4,14 @@ import datetime
 
 # Set Streamlit app theme
 st.set_page_config(page_title="Guideline",
-                   page_icon="images/launchpad-icon.png", layout="centered")  # EDIT PAGE TITLE
+                   page_icon="images/launchpad-icon.png", layout="centered")
 
 # Display logo image
 launchpad_icon = "images/launchpad-icon.png"
 st.image(launchpad_icon, width=100)
 
 # Set up app title
-st.title("Guidelines and Standards")  # EDIT TITLE
+st.title("Guidelines and Standards")
 
 # Display disclaimer message
 st.write('This page offers concise and practical tips to enhance the effective utilization of various commonly used Streamlit components.')
