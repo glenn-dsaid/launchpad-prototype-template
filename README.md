@@ -6,7 +6,7 @@
 
 The "Guidelines and Standards" section offers concise and practical tips to enhance the effective utilization of various commonly used Streamlit components.
 
-### Generic Template
+### <a href = "https://github.com/glenn-dsaid/launchpad-prototype-template/tree/main/template/generic">Generic Template</a>
 
 The Generic Template is designed to be used by external agencies when creating prototypes. The template includes a generic icon and disclaimer prominently displayed in the header. Aside from these differences, the remaining content and structure of the template remain identical to the generic version.
 
