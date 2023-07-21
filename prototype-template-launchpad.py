@@ -229,60 +229,6 @@ with st.expander("📂 **FILE UPLOADER**", expanded=False):
             \n• Limit the accepted file types to only what is necessary for the application to prevent irrelevant or unsupported files from being uploaded.
             \n• Specify the maximum file size that the uploader can handle.""")
 
-# Configuration
-with st.expander("⚙️ **CONFIGURATIONS**", expanded=False):
-
-    # Text Input
-    st.text_input("Text input 2", help="Provide a simple tooltip explanation to help user",
-                  placeholder="e.g. Give an example or instruction to guide user")
-
-    # Text Area
-    st.text_area("Text area 2", help="Provide a simple tooltip explanation to help user",
-                 placeholder="e.g. Give an example or instruction to guide user")
-
-    # Selectbox
-    st.selectbox(
-        'Selectbox 2',
-        ('Option 1', 'Option 2', 'Option 3'), help="Provide a simple tooltip explanation to help user")
-
-    # Multiselect
-    st.multiselect(
-        'Multiselect 2',
-        ['Option 1', 'Option 2', 'Option 3', 'Option 4'],
-        ['Option 1', 'Option 2'], help="Provide a simple tooltip explanation to help user")
-
-    # Checkbox
-    st.checkbox('Option1-1')
-    st.checkbox('Option2-1')
-    st.checkbox('Option3-1')
-
-    # Radio Button
-    st.radio("Radio button 2",
-             ('Option 1', 'Option 2', 'Option 3'), horizontal=True, help="Provide a simple tooltip explanation to help user")
-
-    # Number Input
-    st.number_input('Number input 2', min_value=0, step=1,
-                    help="Provide a simple tooltip explanation to help user")
-
-    # Slider
-    st.slider('Slider 2', 0, 100, 1,
-              help="Provide a simple tooltip explanation to help user")
-
-    # Date input
-    st.date_input(
-        "Date input 2",
-        datetime.date(2023, 5, 6),
-        help="Provide a simple tooltip explanation to help user")
-
-    # Time input
-    st.time_input('Time input 2', datetime.time(12, 00),
-                  help="Provide a simple tooltip explanation to help user")
-
-    # File uploader
-    st.file_uploader(
-        "File uploader 2", help="Provide a simple tooltip explanation to help user")
-
-
 # Generate response & feedback.
 actual_prompt = "The actual prompt will be shown here."
 
