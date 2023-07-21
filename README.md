@@ -1,6 +1,6 @@
 <img src="https://github.com/glenn-dsaid/launchpad-prototype-template/blob/main/images/launchpad-icon.png?raw=true" alt="LaunchPad Logo" width="100"/>
 
-# LaunchPad Prototype Templates
+# LaunchPad Prototype Template
 
 ### Guidelines and Standards
 
@@ -19,5 +19,6 @@ The LaunchPad Template is intended for internal team use when creating prototype
 ### Changelog
 
 Version 1.0.0 (21 July 2023)
-Added template for Generic and Launchpad versions.
-Added a guideline page for usage of commonly used components on Streamlit.
+
+- Added template for Generic and Launchpad versions.
+- Added a guideline page for usage of commonly used components on Streamlit.
