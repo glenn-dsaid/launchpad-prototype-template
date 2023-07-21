@@ -8,6 +8,8 @@ st.image(launchpad_icon, width=100)
 
 st.title("LaunchPad Prototype Template")
 
+st.write("Welcome to the LaunchPad Prototype Template. ")
+
 st.divider()
 
 st.subheader("Guidelines & Standards")
