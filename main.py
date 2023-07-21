@@ -8,9 +8,6 @@ st.image(launchpad_icon, width=100)
 
 st.title("LaunchPad Prototype Template")
 
-st.write("This is the homepage of the LaunchPad Prototype Template. "
-         "Below, you'll find a brief description of what is available in this repository.")
-
 st.divider()
 
 st.subheader("Guidelines & Standards")
