@@ -102,7 +102,7 @@ with st.expander("⚙️ **CONFIGURATIONS**", True):
     with col2:
         st.selectbox(
             'Creativity',
-            ('Low (Focused & Precise)', 'Balanced (Diverse & Coherent)', 'High (Creative & Surprising)'), help="Creativity regulates the randomness of the response.", index=1)
+            ('Low (Conservative & Precise)', 'Balanced (Diverse & Coherent)', 'High (Exploratory & Imaginative)'), help="Creativity regulates the randomness of the response.", index=1)
 
 
 # FOR TESTING PURPOSES ONLY. To replace with actual reponse.
