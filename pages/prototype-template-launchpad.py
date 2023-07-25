@@ -47,7 +47,12 @@ st.image(launchpad_icon, width=100)
 st.title("Application Title")  # USER TO EDIT TITLE
 
 # Display disclaimer message
-st.warning('**This application is in Alpha version**. You should avoid using it for general fact-finding and information retrieval and must never trust the responses completely.')
+st.warning("""**Please read the following before proceeding:**
+           *• This application is currently in Beta version.
+           • The application might generate incorrect or misleading information. Please check and verify the output before using it.
+           • Check the data classifications and sensitivity (R/SN) before putting in your inputs.
+           • DO NOT put Personal Identifiable Information (PII) within this application.
+           • This application is under active testing, and the data collected may be used by the developers to improve your experience.*""")
 
 # Display information section
 with st.expander("**DESCRIPTION**", False):
@@ -70,10 +75,10 @@ with st.expander("🔘 **MODE SELECTION**", expanded=True):
 with st.expander("📖 **CONTEXT**", True):
 
     st.text_input("Context 01",
-                  placeholder="e.g. provide a clear and concise labels or examples to the user", help="Provide a simple tooltip explanation to help user.")
+                  placeholder="provide a clear and concise explanation or examples to user", help="Provide a simple tooltip explanation to help user.")
 
     st.text_area("Context 02", help="""Provide a simple tooltip explanation to help user.""",
-                 placeholder="e.g. provide a clear and concise labels or examples to the user", max_chars=1000)
+                 placeholder="provide a clear and concise explanation or examples to user", max_chars=1000)
 
 # Configurations section (For all CO-STAR related fields)
 with st.expander("⚙️ **CONFIGURATIONS**", True):
