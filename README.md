@@ -24,11 +24,11 @@ The LaunchPad Template is intended for internal team use when creating prototype
 
 ### Changelog
 
-Version 1.0.0 (21 July 2023)
+**Version 1.0.1 (25 July 2023)**
+
+- Updated Generic and LaunchPad template with new disclaimer text.
+
+**Version 1.0.0 (21 July 2023)**
 
 - Added template for Generic and LaunchPad versions.
 - Added a guideline page for usage of commonly used components on Streamlit.
-
-Version 1.0.1 (25 July 2023)
-
-- Updated Generic and LaunchPad template with new disclaimer text.
