@@ -55,7 +55,7 @@ st.title("Application Title")  # USER TO EDIT TITLE
 
 # Display disclaimer message (Edit where necessary)
 st.warning("""**Please read the following before proceeding:**
-        *• This application is currently in **Beta version** and supports data classified up to **Restricted and Sensitive (Normal)**. 
+        *• This application is an external application currently in **Beta version** and supports data classified up to **Restricted and Sensitive (Normal)**. 
         • **DO NOT** put Personal Identifiable Information (PII) within this application.
         • This application is under active testing and your prompts will be logged to improve your experience.
         • By using this application, you acknowledge that you recognise the possibility of AI generating inaccurate or wrong responses, and you take full responsibility over how you use the generated output.*""")
