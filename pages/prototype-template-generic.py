@@ -108,7 +108,7 @@ with st.expander("⚙️ **CONFIGURATIONS**", True):
     with col2:
         st.selectbox(
             'Creativity',
-            ('Low (Conservative & Precise)', 'Balanced (Diverse & Coherent)', 'High (Exploratory & Imaginative)'), help="Creativity regulates the randomness of the response.", index=1)
+            ('Low', 'Balanced', 'High'), help="Creativity regulates the randomness of the response. A higher creativity value typically makes the output more diverse but might also increase its likelihood of straying from the context.", index=1)
 
 # FOR TESTING PURPOSES ONLY. To replace with actual reponse.
 response = "The response will be shown here."
@@ -119,7 +119,7 @@ if st.button("Submit", type="primary"):
         time.sleep(2)  # FOR TESTING PURPOSES ONLY. Remove when using template.
         response_section()
         st.session_state.response_msg = response
-        feedback_section()
+        # feedback_section()
 
 # To show response, disclaimer and thank you message when user click on feedback submit button
 if st.session_state.click_status:
@@ -148,7 +148,7 @@ st.divider()
 
 # Display feedback message
 st.info(
-    "💬 Help us improve the application by [sharing your feedback with us](http://go.gov.sg/launchpad-gpt-feedback).")
+    "💬 Help us improve the application by [sharing your feedback with us](#).")
 
 # Hide streamlit footer
 hide_streamlit_style = """

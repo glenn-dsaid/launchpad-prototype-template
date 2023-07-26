@@ -104,7 +104,7 @@ with st.expander("⚙️ **CONFIGURATIONS**", True):
     with col2:
         st.selectbox(
             'Creativity',
-            ('Low (Conservative & Precise)', 'Balanced (Diverse & Coherent)', 'High (Exploratory & Imaginative)'), help="Creativity regulates the randomness of the response.", index=1)
+            ('Low', 'Balanced', 'High'), help="Creativity regulates the randomness of the response. A higher creativity value typically makes the output more diverse but might also increase its likelihood of straying from the context.", index=1)
 
 
 # FOR TESTING PURPOSES ONLY. To replace with actual reponse.
@@ -147,7 +147,9 @@ st.divider()
 st.info(
     "💬 Help us improve the application by [sharing your feedback with us](http://go.gov.sg/launchpad-gpt-feedback).")
 
-
+# Display application built from launchpad message
+st.caption(
+    "🛠️ Built from [LaunchPad](https://go.gov.sg/launchpad)")
 
 # Hide streamlit footer
 hide_streamlit_style = """
