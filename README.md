@@ -24,7 +24,7 @@ The LaunchPad Template is intended for internal team use when creating prototype
 
 ### Changelog
 
-**Version 1.0.1 (25 July 2023)**
+**Version 1.0.1 (26 July 2023)**
 
 - Updated Generic and LaunchPad template with new disclaimer text.
 
