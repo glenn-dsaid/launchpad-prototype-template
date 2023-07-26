@@ -27,6 +27,10 @@ The LaunchPad Template is intended for internal team use when creating prototype
 **Version 1.0.1 (26 July 2023)**
 
 - Updated Generic and LaunchPad template with new disclaimer text.
+- Added a utility function to send data as a log file to s3 bucket. 
+- Updated the feedback form in `prototype-template-launchpad` template that use the utility function. \
+  Refer to the docstring in `utils/feedback_logger.py` for more details, such as requirements and usage.
+
 
 **Version 1.0.0 (21 July 2023)**
 

@@ -1,5 +1,6 @@
 import streamlit as st
 import time
+from utils import feedback_logger
 
 # ------------ TEMPLATE HEADER START (EDIT ONLY RELEVANT FIELDS) ------------
 
@@ -8,12 +9,7 @@ def feedback_section():  # Define feedback section content
     st.session_state.click_status = False
 
     # Feedback section
-    with st.form("feedback_form"):
-        feedback = st.radio(
-            "How would you rate this response?", ("👍", "👎"), horizontal=True)
-        comment = st.text_input("Additional comments (optional)")
-        click_feedback = st.form_submit_button(
-            label='Send feedback', on_click=form_callback)
+    feedback_logger.insert_feedback_form()
 
 
 def form_callback():  # Define feedback callback
@@ -150,6 +146,8 @@ st.divider()
 # Display feedback message
 st.info(
     "💬 Help us improve the application by [sharing your feedback with us](http://go.gov.sg/launchpad-gpt-feedback).")
+
+
 
 # Hide streamlit footer
 hide_streamlit_style = """
