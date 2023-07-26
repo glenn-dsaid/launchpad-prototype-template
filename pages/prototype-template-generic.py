@@ -21,10 +21,17 @@ def form_callback():  # Define feedback callback
     # To do something with the feedback. To be implemented
 
 
+def response_disclaimer():
+    # Display response disclaimer message (Edit where necessary)
+    st.warning("""
+            ***Reminder**: Please check the output above for inaccuracy or hallucination. When in doubt, do not use the AI's response. Avoid putting any Personal Identifiable Information (PII) in the prompts.*""")
+
+
 def response_section():  # Define response section
     st.divider()
     st.subheader("Response")
     st.info(response)
+    response_disclaimer()
 
 
 # Initiate the submit button status
@@ -46,13 +53,13 @@ st.image(prototype_icon, width=80)
 # Set up app title
 st.title("Application Title")  # USER TO EDIT TITLE
 
-# Display disclaimer message
+# Display disclaimer message (Edit where necessary)
 st.warning("""**Please read the following before proceeding:**
-        *• This is an external application which is currently in Beta version.
-        • The application might generate incorrect or misleading information. Please check and verify the output before using it.
-        • Check the data classifications and sensitivity (R/SN) before putting in your inputs.
-        • DO NOT put Personal Identifiable Information (PII) within this application.
-        • This application is under active testing, and the data collected may be used by the developers to improve your experience.*""")
+        *• This is an **external application** which is currently in **Beta version**.
+        • This application currently supports data classified up to **Restricted and Sensitive (Normal)**. 
+        • This application is under active testing and your prompts will be logged to improve your experience.
+        • **DO NOT** put Personal Identifiable Information (PII) within this application.
+        • By using the service, you acknowledge that you recognise the possibility of AI generating inaccurate or wrong responses, and you take full responsibility over how you use the generated output.*""")
 
 # Display information section
 with st.expander("**DESCRIPTION**", False):
@@ -115,7 +122,7 @@ if st.button("Submit", type="primary"):
         st.session_state.response_msg = response
         feedback_section()
 
-# To show response and thank you message when user click on feedback submit button
+# To show response, disclaimer and thank you message when user click on feedback submit button
 if st.session_state.click_status:
     response_section()
     st.success("Thank you for your feedback!")
