@@ -1,5 +1,6 @@
 import streamlit as st
 import time
+from utils import feedback_logger
 
 # ------------ TEMPLATE HEADER START (EDIT ONLY RELEVANT FIELDS) ------------
 
@@ -8,12 +9,7 @@ def feedback_section():  # Define feedback section content
     st.session_state.click_status = False
 
     # Feedback section
-    with st.form("feedback_form"):
-        feedback = st.radio(
-            "How would you rate this response?", ("👍", "👎"), horizontal=True)
-        comment = st.text_input("Additional comments (optional)")
-        click_feedback = st.form_submit_button(
-            label='Send feedback', on_click=form_callback)
+    feedback_logger.insert_feedback_form()
 
 
 def form_callback():  # Define feedback callback
@@ -108,7 +104,7 @@ with st.expander("⚙️ **CONFIGURATIONS**", True):
     with col2:
         st.selectbox(
             'Creativity',
-            ('Low (Conservative & Precise)', 'Balanced (Diverse & Coherent)', 'High (Exploratory & Imaginative)'), help="Creativity regulates the randomness of the response.", index=1)
+            ('Low', 'Balanced', 'High'), help="Creativity regulates the randomness of the response. A higher creativity value typically makes the output more diverse but might also increase its likelihood of straying from the context.", index=1)
 
 
 # FOR TESTING PURPOSES ONLY. To replace with actual reponse.
@@ -150,6 +146,10 @@ st.divider()
 # Display feedback message
 st.info(
     "💬 Help us improve the application by [sharing your feedback with us](http://go.gov.sg/launchpad-gpt-feedback).")
+
+# Display application built from launchpad message
+st.caption(
+    "🛠️ Built from [LaunchPad](https://go.gov.sg/launchpad)")
 
 # Hide streamlit footer
 hide_streamlit_style = """
